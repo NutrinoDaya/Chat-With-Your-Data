@@ -11,7 +11,7 @@ export default function ChatPage() {
     }}>
       <header className="chat-header">
         <h1>Data Analytics Assistant</h1>
-        <p>Ask questions about your financial and device data. I'll automatically detect the right data source and response format.</p>
+        <p>Ask questions about your financial data. I'll automatically detect the right data source and response format.</p>
       </header>
       <main className="chat-main">
         <Chat />
