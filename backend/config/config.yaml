@@ -1,0 +1,43 @@
+# LLM Settings
+provider: "vllm"
+model_name: "meta-llama/Llama-2-7b-chat-hf"
+max_length: 2048
+temperature: 0.7
+
+# vLLM Configuration
+# service_url should point to the vLLM service root (no path suffix); provider appends /v1/chat/completions
+vllm:
+  service_url: "http://vllm:8000"
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.9
+  max_num_batched_tokens: 8192
+  quantization: "awq"
+
+# LMCache Configuration
+lmcache:
+  enabled: true
+  cache_dir: "/app/data/lmcache"
+  max_cache_size: 10000
+  similarity_threshold: 0.85
+  redis_url: "redis://redis:6379"
+
+# Embeddings Configuration
+embeddings_model: "BAAI/bge-base-en-v1.5"
+embedding_dimension: 768
+
+# Vector Store Configuration
+qdrant_url: "http://qdrant:6333"
+qdrant_api_key: ""
+qdrant_collection_financial: "financial_chunks"
+qdrant_collection_devices: "devices_chunks"
+
+# Kafka Configuration
+kafka_bootstrap: "kafka:29092"
+kafka_topic_financial: "financial_stream"
+kafka_topic_devices: "devices_stream"
+
+# Database Configuration
+duckdb_path: "/app/data/warehouse.duckdb"
+
+# Logging Configuration
+log_level: "INFO"

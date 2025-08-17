@@ -1,0 +1,46 @@
+# Use slim Python base
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies (rarely change → keep early in build)
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    python3-dev \
+    libfreetype6-dev \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+# Upgrade pip first (doesn't depend on requirements)
+RUN pip install --upgrade pip
+
+# Copy requirements separately (ensures caching)
+COPY requirements.combined.txt .
+
+# Install dependencies (cached unless requirements change)
+RUN pip install -r requirements.combined.txt
+
+# Set cache directory for HuggingFace
+ENV TRANSFORMERS_CACHE=/root/.cache/huggingface
+
+# Pre-download models (will be cached inside Docker layer)
+RUN python -c "from transformers import AutoTokenizer, AutoModel; \
+    model_name='BAAI/bge-large-en-v1.5'; \
+    AutoTokenizer.from_pretrained(model_name); \
+    AutoModel.from_pretrained(model_name)"
+
+# Copy source code (changes won’t invalidate deps)
+COPY config ./config/
+COPY src ./src
+COPY scripts/start-backend.sh ./scripts/
+
+# Permissions
+RUN chmod +x ./scripts/start-backend.sh
+
+# Python runtime settings
+ENV PYTHONPATH=/app/src
+ENV PYTHONUNBUFFERED=1
+
+# Entrypoint
+CMD ["./scripts/start-backend.sh"]

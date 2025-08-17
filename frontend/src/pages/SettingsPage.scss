@@ -1,0 +1,13 @@
+@use '../styles/variables' as *;
+
+.settings-page { min-height:100vh; background:radial-gradient(circle at 70% 20%,#1d2530 0%,#0f1115 70%); display:flex; align-items:center; justify-content:center; padding:2rem; }
+
+.settings-card { background:$color-surface; padding:2.8rem 2.4rem 2.4rem; border-radius:$radius-lg; box-shadow:$shadow-md; min-width:420px; max-width:680px; border:1px solid $color-border; }
+.settings-card h3 { font-size:1.9rem; font-weight:700; margin:0 0 1.1rem; background:linear-gradient(90deg,$color-primary 0%,$color-primary-accent 55%,#93c5fd 90%); background-clip:text; -webkit-background-clip:text; color:transparent; }
+.settings-card p { color:$color-text-dim; margin:0 0 1.2rem; font-size:1.02rem; line-height:1.5; }
+.settings-card ul { margin:0 0 1.4rem; padding-left:1.2rem; list-style:disc; }
+.settings-card li { font-size:.95rem; margin-bottom:.55rem; color:$color-text; }
+.settings-card li strong { color:$color-primary-accent; }
+.settings-card code { background:$color-surface-alt; padding:.25em .55em; border-radius:$radius-sm; font-size:.85em; border:1px solid $color-border; }
+.settings-note { display:flex; gap:.65rem; align-items:center; background:linear-gradient(135deg,rgba(59,130,246,.12) 0%,rgba(59,130,246,.06) 100%); color:$color-primary-accent; padding:.85em 1.05em; border-radius:$radius-md; font-size:.85rem; border:1px solid rgba(59,130,246,.35); box-shadow:inset 0 0 0 1px rgba(59,130,246,.15); }
+.settings-note span { font-size:1.2em; }

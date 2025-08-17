@@ -1,0 +1,60 @@
+{
+  "development": {
+    "apiBaseUrl": "http://localhost:8001",
+    "wsBaseUrl": "ws://localhost:8001",
+    "features": {
+      "enableCharts": true,
+      "enableRealtime": true,
+      "enableDataSources": ["financial", "devices"]
+    },
+    "defaultSource": "financial",
+    "chartOptions": {
+      "width": 800,
+      "height": 400,
+      "theme": "light",
+      "colors": ["#2563eb", "#dc2626", "#16a34a"],
+      "animation": true
+    },
+    "tableOptions": {
+      "pageSize": 10,
+      "sortable": true,
+      "filterable": true,
+      "exportable": true
+    },
+    "ui": {
+      "theme": "light",
+      "primaryColor": "#2563eb",
+      "fontSize": "16px",
+      "fontFamily": "Inter, system-ui, sans-serif"
+    }
+  },
+  "production": {
+    "apiBaseUrl": "http://localhost:8001",
+    "wsBaseUrl": "ws://localhost:8001",
+    "features": {
+      "enableCharts": true,
+      "enableRealtime": true,
+      "enableDataSources": ["financial", "devices"]
+    },
+    "defaultSource": "financial",
+    "chartOptions": {
+      "width": 800,
+      "height": 400,
+      "theme": "light",
+      "colors": ["#2563eb", "#dc2626", "#16a34a"],
+      "animation": true
+    },
+    "tableOptions": {
+      "pageSize": 10,
+      "sortable": true,
+      "filterable": true,
+      "exportable": true
+    },
+    "ui": {
+      "theme": "light",
+      "primaryColor": "#2563eb",
+      "fontSize": "16px",
+      "fontFamily": "Inter, system-ui, sans-serif"
+    }
+  }
+}

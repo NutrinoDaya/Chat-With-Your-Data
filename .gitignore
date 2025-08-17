@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+
+
+# Node.js / Frontend
+node_modules/
+
+
+# AI/ML Models and Cache
+.transformers_cache/
+.cache/
+models/
+
+# Vector Database
+qdrant_storage/
+
+# Test Files and Results
+backend/tests/
+.pytest_cache/
+
+# Docker
+.dockerignore
+
+# HuggingFace Token
+.huggingface_token

@@ -1,0 +1,18 @@
+@use '../styles/variables' as *;
+
+.chat-page { min-height:100vh; display:flex; flex-direction:column; background:radial-gradient(circle at 20% 20%,#1d2530 0%,#0f1115 70%); }
+
+.chat-header { padding:2.2rem 1.5rem 1.3rem; text-align:center; position:relative; }
+.chat-header h1 { font-size:2.4rem; font-weight:700; background:linear-gradient(90deg,$color-primary 0%,$color-primary-accent 60%,#93c5fd 90%); background-clip:text; -webkit-background-clip:text; color:transparent; margin:0 0 .6rem; }
+.chat-header p { color:$color-text-dim; font-size:1.05rem; margin:0 auto; max-width:700px; line-height:1.4; }
+.chat-header:after { content:''; position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:60%; height:1px; background:linear-gradient(90deg,transparent,$color-border,transparent); }
+
+.data-source-selector { margin-top:1.1rem; }
+.data-source-selector select { background:$color-surface; color:$color-text; border:1px solid $color-border; padding:.55rem .9rem; border-radius:$radius-md; font-size:.9rem; box-shadow:$shadow-sm; transition:all $transition-base; }
+.data-source-selector select:hover { border-color:$color-primary; }
+.data-source-selector select:focus { outline:none; border-color:$color-primary; box-shadow:$shadow-focus; }
+
+.chat-main { flex:1; display:flex; justify-content:center; align-items:stretch; padding:1.2rem 1.2rem 2.4rem; max-width:1400px; width:100%; margin:0 auto; }
+
+/* Enlarge chat box */
+.chat-main .chat-container { max-width:100%; width:100%; flex:1; padding:2rem 2rem 2.75rem; }
